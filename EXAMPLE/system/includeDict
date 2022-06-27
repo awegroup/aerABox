@@ -1,0 +1,32 @@
+/*--------------------------------*- C++ -*----------------------------------*\ 
+| =========                 |                                                 | 
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           | 
+|  \\    /   O peration     | Version:  dev                                   | 
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      | 
+|    \\/     M anipulation  |                                                 | 
+\*---------------------------------------------------------------------------*/ 
+
+// Input parameters:
+turbulence_model    kOmegaSST;
+Re                  510000;
+alpha               0;
+nu_s				1.4603e-05;
+nut                 0;
+p 					101325;
+rho_s               1.228;
+p_rho				#calc "$p/$rho_s";
+I                   0.02; // Turbulence intensity
+b                   1000; // Eddy viscosity ratio
+l                   0.2032; // Characteristic length
+vel                 36.6507;  // Speed
+// Calculate the boundary conditions from the input parameters
+alphar              #calc "degToRad($alpha)";
+i                   #calc "$vel*cos(double($alphar))";
+j                   #calc "$vel*sin(double($alphar))";
+mj                  #calc "-($j)";
+
+
+Ui                  ($i $j 0);
+nui                 #calc "$vel*$l/$Re";
+ki                  #calc "3./2. * pow($vel*$I,2.0)";
+omegai              #calc "$ki/$b/$nui";

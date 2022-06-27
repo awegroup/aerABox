@@ -1,0 +1,8 @@
+ yPlus
+ {
+   type yPlus;
+   functionObjectLibs ("libutilityFunctionObjects.so");
+   writeControl outputTime;
+   writeIntervals 500;
+   log  true;
+ }

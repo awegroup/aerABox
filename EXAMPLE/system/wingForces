@@ -1,0 +1,15 @@
+#include "includeDict";
+
+wingForces
+{
+    patches             (cylinder);
+    CofR                (0 0 0);
+    writeControl 		timeStep;
+    writeInterval 		1;
+    type 				forces;
+    pName 				p;
+    UName 				U;
+    rho 			    rhoInf;
+    rhoInf 				$rho_s;
+    log 		        true;
+}
