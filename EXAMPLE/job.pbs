@@ -1,0 +1,63 @@
+#!/bin/bash
+#PBS -j oe
+#PBS -o log.mylog.${PBS_JOBID}
+#PBS -N BoxWing_12_3_deg_HR
+#PBS -q awep-small
+#PBS -l walltime=72:00:00
+#PBS -l nodes=1:ppn=48:typeg
+#PBS -m abe
+#PBS -M G.E.BuendiaVela@student.tudelft.nl
+
+##################
+#User Settings
+##################
+
+solver=simpleFoam
+runNumber=1
+finalTime = 4001
+
+echo Job started on `uname -n` at `date`
+
+echo "Loading OpenFOAM-v2006"
+module load mpi/openmpi-1.8.8-gnu
+module load openfoam/v2006
+
+# Change to your working directory
+cd /home/gbuendiavela/BoxWing_12_3_deg_HR
+echo "Working directory: " /home/gbuendiavela/BoxWing_12_3_deg_HR
+
+#################
+# Run OpenFOAM in Parallel
+#################
+echo "Starting OpenFOAM job at: " $(date)
+
+# Decompose for parallel computing
+
+echo "Renumbering the mesh before decomposition"
+renumberMesh > log.renumberMesh.1 2>&1
+
+echo "Checking the mesh"
+checkMesh -latestTime > log.checkMesh.1 2>&1
+
+echo "Decomposing the domains"
+decomposePar -cellDist -force -latestTime > log.decomposePar 2>&1
+
+# Create solver log with run number of maximum 10
+touch log.$runNumber.$solver
+
+# Run the solver (parallel)
+which $solver
+echo "Running " $solver
+# Actual line runs the openfoam
+mpirun --hostfile $PBS_NODEFILE $solver -parallel > log.$runNumber.$solver 2>&1
+# Post processing
+reconstructPar > log.reconstructPar.1 2>&1
+echo "solution reconstructed"
+
+touch foam.foam
+
+rm -rf processor*
+$PBS_NODEFILE $solver -postProcess -func yPlus -time $finalTime > log.$runNumber.$solver.yPlus 2>&1
+echo "Removing decomposed folders"
+
+echo "Ending OpenFOAM job at: " $(date)
