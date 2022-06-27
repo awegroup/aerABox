@@ -45,9 +45,9 @@ aerABox is a framework implemented in Matlab for the design, low and high fideli
 ## Folders
 1. EXAMPLE -> Contains the files used for the automatic generation of the OpenFOAM setup
 2. sr_bwa -> Contains the functions used in the BoxWingAPAME.m block
-3. sr_bwg -> Contains the functions used in the BoxWingGlyph.m block
-  3.1 sr_aux -> Auxiliar functions used in the BoxWingGlyph.m block
-  3.2 sr_pw -> Pointwise functions the BoxWingGlyph.m block -> These functions can be used to generate any kind of geometry
+3. sr_bwg -> Contains the functions used in the BoxWingGlyph.m block <br />
+ 3.1. sr_aux -> Auxiliar functions used in the BoxWingGlyph.m block <br />
+ 3.2. sr_pw -> Pointwise functions the BoxWingGlyph.m block -> These functions can be used to generate any kind of geometry
 4. sr_bwp -> Contains the functions used in the ParametrizationBWFiniteTE.m block
 5. sr_of -> Contains the functions used in the openFoamConfiguration.m example script
 ## Recommendations
