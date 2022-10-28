@@ -55,7 +55,7 @@ aerABox is a framework implemented in Matlab for the design, low and high fideli
 2. If your geometry is different than a box-wing, use the functions in the folders to build your own main script
 3. If you are interested in automatic Pointwise meshing, use the functions of the folder sr_pw to build your own main script 
 ## References
-[1] D. Eijkelhof: Design and Optimisation Framework of a Multi-MW Airborne Wind Energy Reference System. MSc Thesis Delft University of Technoly and Technical University of Denmark, 2019. [uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d](http://resolver.tudelft.nl/uuid:e759f9ad-ab67-43b3-97e0-75558ecf222d)
+[1] D. Eijkelhof, R. Schmehl: Six-degrees-of-freedom simulation model for future multi-megawatt airborne wind energy systems. Renewable Energy, Vol. 196, pp. 137-150, 2022. [doi:10.1016/j.renene.2022.06.094](https://doi.org/10.1016/j.renene.2022.06.094)
 
 [2] P. D. Gall and H. C. Smith, “Aerodynamic characteristics of biplanes with winglets,” Journal of Aircraft,
 vol. 24, no. 8, pp. 518–522, 1987. DOI: [10.2514/3.45470](https://arc.aiaa.org/doi/10.2514/3.45470)
