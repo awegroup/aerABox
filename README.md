@@ -1,3 +1,5 @@
+❗ **NB: Archived because of inactivity** ❗
+
 # aerABox (3D box wing aerodynamic design tool)
 aerABox is a framework implemented in Matlab for the design, low and high fidelity aerodynamic simulations on box-wings for Airborne Wind Energy Systems. It was developed for the educational research project of Gabriel Buendía, supervised by TU Delft. The ultimate goal of this work is the generation of reliable simulations to study the aerodynamics of box wing design concepts applied to AWE systems. The MATLAB framework includes:
 1. Parametrization of the box-wing geometry
